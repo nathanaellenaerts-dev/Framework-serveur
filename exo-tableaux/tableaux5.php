@@ -3,12 +3,6 @@ function rechercheTransformationDonnees($products) {
     $prixFiltres = array_filter($products, function ($prix) {
         return $prix['prix'] < 10;
     });
-    $infosProduits = array_map(function ($produit) {
-        return [
-            'nom' => $produit['nom'],
-            'prix' => $produit['prix']
-        ];
-    }, $prixFiltres);
     $phrases = array_map(function ($produit) {
         return $produit['nom'] . ' : ' . $produit['prix'] . '€';
     }, $prixFiltres);
